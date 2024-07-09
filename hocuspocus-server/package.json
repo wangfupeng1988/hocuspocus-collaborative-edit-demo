@@ -1,0 +1,24 @@
+{
+  "name": "hocuspocus-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hocuspocus/extension-database": "^2.13.5",
+    "@hocuspocus/extension-logger": "^2.13.5",
+    "@hocuspocus/server": "^2.13.5",
+    "@hocuspocus/transformer": "^2.13.5",
+    "i": "^0.3.7",
+    "koa": "^2.15.3",
+    "koa-easy-ws": "^2.1.0",
+    "nodemon": "^3.1.4",
+    "npm": "^10.8.1"
+  }
+}
