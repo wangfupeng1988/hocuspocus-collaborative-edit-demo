@@ -5,7 +5,7 @@ https://tiptap.dev/docs/hocuspocus/introduction
 ## Run client side
 
 ```
-cd hocuspocus-client
+cd hocuspocus-client-nextjs
 npm i
 npm run dev
 ```
