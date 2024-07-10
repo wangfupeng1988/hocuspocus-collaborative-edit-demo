@@ -3,7 +3,7 @@ export default function Home() {
     <div>
       <h1>Hocuspocus client demo.</h1>
       <p>
-        Visit demos in <code>src</code> direction.
+        Visit demos in <code>`src`</code> direction.
       </p>
     </div>
   )

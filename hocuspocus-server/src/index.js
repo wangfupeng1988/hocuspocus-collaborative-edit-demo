@@ -4,6 +4,7 @@ const { Server } = require('@hocuspocus/server')
 const { Logger } = require('@hocuspocus/extension-logger')
 const { Database } = require('@hocuspocus/extension-database')
 const { TiptapTransformer } = require('@hocuspocus/transformer')
+// const Router = require('koa-router')
 
 // Configure Hocuspocus
 const server = Server.configure({
@@ -42,6 +43,7 @@ app.use(websocket())
 // and pass it to the handleConnection method.
 app.use(async (ctx, next) => {
   const ws = await ctx.ws()
+  // console.log('ws....', ws)
 
   server.handleConnection(
     ws,
@@ -52,6 +54,24 @@ app.use(async (ctx, next) => {
     }
   )
 })
+
+// const router = new Router()
+// router.get('/', async (ctx) => {
+//   ctx.body = 'Hello World'
+// })
+// router.get('/collaborate', async (ctx) => {
+//   const ws = await ctx.ws()
+
+//   server.handleConnection(
+//     ws,
+//     ctx.request,
+//     // additional data (optional)
+//     {
+//       // user_id: 1234,
+//     }
+//   )
+// })
+// app.use(router.routes()).use(router.allowedMethods())
 
 // Start the server
 app.listen(1234)

@@ -1,3 +1,5 @@
+import './styles.css'
+
 import EditorComponent from './EditorComponent'
 
 export default function Home() {
