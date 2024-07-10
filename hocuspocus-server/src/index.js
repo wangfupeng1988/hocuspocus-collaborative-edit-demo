@@ -8,20 +8,17 @@ const { TiptapTransformer } = require('@hocuspocus/transformer')
 
 // Configure Hocuspocus
 const server = Server.configure({
-  onConnect: async (ws, req, data) => {
+  onConnect: async (data) => {
     console.log('New connection')
   },
-  onDisconnect: async (ws, code, reason) => {
+  onDisconnect: async (data) => {
     console.log('Disconnected')
   },
-  onError: async (ws, err) => {
-    console.log('Error')
+  onStoreDocument: async (data) => {
+    const json = TiptapTransformer.fromYdoc(data.document, 'default')
+    console.log('Document stored .... ', data.documentName, json)
   },
-  onStoreDocument: async (doc) => {
-    const json = TiptapTransformer.fromYdoc(doc.document, 'default')
-    console.log('Document stored .... ', doc.documentName, json)
-  },
-  onLoadDocument: async (doc) => {
+  onLoadDocument: async (data) => {
     console.log('Document loaded')
   },
   extensions: [
