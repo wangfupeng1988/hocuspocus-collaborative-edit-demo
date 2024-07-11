@@ -1,6 +1,7 @@
 import { Server } from '@hocuspocus/server'
 import { TiptapTransformer } from '@hocuspocus/transformer'
 import { Database } from '@hocuspocus/extension-database'
+import { Logger } from '@hocuspocus/extension-logger'
 
 const hocuspocusServer = Server.configure({
   // config
@@ -10,11 +11,15 @@ const hocuspocusServer = Server.configure({
   onDisconnect: async (payload) => {
     console.log('Disconnected')
   },
+  // onChange: async (data) => {
+  //   console.log('Changed .... ', data.documentName)
+  // },
   onStoreDocument: async (data) => {
     const json = TiptapTransformer.fromYdoc(data.document, 'default')
     console.log('Document stored .... ', data.documentName, json)
   },
   extensions: [
+    new Logger(),
     new Database({
       store: async ({ documentName, state }) => {
         console.log('Store db ... ', documentName, state)
